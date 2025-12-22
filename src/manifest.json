@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Pokke Bookmark Extension",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Save the current page to Pokke bookmarks.",
 	"action": {
 		"default_title": "Save to Pokke"
