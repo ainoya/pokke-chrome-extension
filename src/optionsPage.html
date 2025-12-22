@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pokke Extension Settings</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 24px;
+        color: #0f172a;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 360px;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-weight: 600;
+      }
+      input[type="text"] {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #94a3b8;
+        font-size: 14px;
+      }
+      button {
+        align-self: flex-start;
+        background-color: #2563eb;
+        border: none;
+        border-radius: 6px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 16px;
+      }
+      button:hover {
+        background-color: #1d4ed8;
+      }
+      p {
+        margin: 0;
+        min-height: 20px;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pokke Extension Settings</h1>
+    <p>Set your API Key and Workspace ID from Pokke to save the page you are viewing with one click.</p>
+    <form id="apiKeyForm">
+      <label for="apiKey">
+        API Key
+        <input
+          id="apiKey"
+          name="apiKey"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </label>
+      <label for="workspaceId">
+        Workspace ID
+        <input
+          id="workspaceId"
+          name="workspaceId"
+          type="text"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </label>
+      <button type="submit">Save</button>
+      <p id="saveStatus" aria-live="polite"></p>
+    </form>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

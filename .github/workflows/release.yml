@@ -1,0 +1,53 @@
+name: tagpr
+on:
+  push:
+    branches: ["main"]
+jobs:
+  tagpr:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tagpr.outputs.tag }}
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: increment chrome extnsion manifest.json version
+        run: |
+          CURRENT_VERSION=$(jq -r '.version' src/manifest.json)
+          NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. '{if (NF==1) {$1+=1} else {$NF+=1}; OFS="."; print $0}' | sed 's/ /./g')
+          jq --arg new_version $NEW_VERSION '.version = $new_version' src/manifest.json > src/manifest.json.tmp
+          mv src/manifest.json.tmp src/manifest.json
+      - uses: Songmu/tagpr@v1
+        id: tagpr
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # run job to upload artifact if git tagged
+  upload:
+    runs-on: ubuntu-latest
+    needs: tagpr
+    if: needs.tagpr.outputs.tag != ''
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: |
+          pnpm run build:zip
+      - name: Upload artifact
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.tagpr.outputs.tag }}
+          files: |
+            chrome-extension.zip

@@ -1,0 +1,19 @@
+{
+  "name": "@pokke/chrome-extension",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && vite build && cp src/manifest.json dist/manifest.json && cp src/optionsPage.html dist/optionsPage.html",
+    "build:zip": "pnpm build && (cd dist && zip -r ../chrome-extension.zip .)",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check --write .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.32",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0",
+    "vitest": "^4.0.16"
+  }
+}

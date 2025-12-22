@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Pokke Bookmark Extension",
+  "version": "0.0.1",
+  "description": "Save the current page to Pokke bookmarks.",
+  "action": {
+    "default_title": "Save to Pokke"
+  },
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://pokke.femto-cloud.com/*",
+    "https://api.pokke.femto-cloud.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "optionsPage.html"
+}
