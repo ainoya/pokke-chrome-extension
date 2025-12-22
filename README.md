@@ -16,7 +16,18 @@ A Chrome extension to save the current page to [Pokke](https://pokke.femto-cloud
 
 ### 1. Installation
 
-Currently, this extension supports manual installation only.
+You can install the extension by downloading it from the release page or by building it from source.
+
+#### Option 1: Download from Release Page
+
+1. Go to the [Releases page](https://github.com/ainoya/pokke-chrome-extension/releases).
+2. Download `chrome-extension.zip` from the latest release.
+3. Unzip the downloaded file.
+4. Open `chrome://extensions/` in Chrome.
+5. Enable **Developer mode** at the top right.
+6. Click **Load unpacked** and select the unzipped directory.
+
+#### Option 2: Build from Source
 
 1. Clone the repository and install dependencies:
    ```bash
