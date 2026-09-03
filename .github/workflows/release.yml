@@ -81,7 +81,7 @@ jobs:
         run: |
           pnpm run build:zip
       - name: Upload artifact
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ needs.tagpr.outputs.tag }}
           files: |
