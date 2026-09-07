@@ -12,7 +12,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.3.10",
-		"@types/chrome": "^0.1.32",
+		"@types/chrome": "^0.2.0",
 		"typescript": "^5.8.3",
 		"vite": "^7.0.0",
 		"vitest": "^4.0.16"
