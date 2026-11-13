@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.0.5](https://github.com/ainoya/pokke-chrome-extension/compare/v0.0.4...v0.0.5) - 2026-11-13
+
+- Update dependency pnpm to v12 [SECURITY] by @renovate[bot] in https://github.com/ainoya/pokke-chrome-extension/pull/33
+- fix: migrate onlyBuiltDependencies to allowBuilds for pnpm 12 by @ainoya in https://github.com/ainoya/pokke-chrome-extension/pull/34
+
 ## [v0.0.4](https://github.com/ainoya/pokke-chrome-extension/compare/v0.0.3...v0.0.4) - 2026-11-01
 
 - chore(deps): fix security vulnerabilities (2026-10-28) by @ainoya in https://github.com/ainoya/pokke-chrome-extension/pull/30
